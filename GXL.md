@@ -380,8 +380,13 @@
 | Param      | Type     | Description                                |
 | ---------- | -------- | ------------------------------------------ |
 | `asset`    | `String` | Tài sản muốn thế chấp, VD `ETH`,`BNB`, ... |
-| `oldPrice` | `Number` | Giá cũ                                     |
-| `newPrice` | `String` | Giá mới                                    |
+| `price` | `Number` | Giá cũ                                     |
+| `p1h` | `Number` | Phần trăm 1h |
+| `p24h` | `Number` | Phần trăm 24h |
+| `p7d` | `Number` | Phần trăm 7d |
+| `volume` | `Number` | Khối lượng giao dịch |
+| `timestamp` | `Number` | Thời gian |
+
 
 ### Chain list
 
