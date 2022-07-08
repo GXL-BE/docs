@@ -99,7 +99,7 @@
 #### 5. Lock User Balance
 
 - Description: Sử dụng để lock số dư của user,
-- Endpoint: `/balance/${user_id}/lock`
+- Endpoint: `/balances/${user_id}/lock`
 - Method: `POST`
 - Request: `JSON Object`
 
@@ -127,7 +127,7 @@
 #### 6. Unlock User Balance
 
 - Description: Sử dụng để unlock khoản vay của user
-- Endpoint: `/balance/${user_id}/unlock`
+- Endpoint: `/balances/${user_id}/unlock`
 - Method: `POST`
 - Request: `JSON Object`
 
@@ -159,7 +159,7 @@
 #### 7. Liquidate User Lock
 
 - Description: Sử dụng để thanh lý khoản vay của user
-- Endpoint: `/balance/${user_id}/liquidate`
+- Endpoint: `/balances/${user_id}/liquidate`
 - Method: `POST`
 - Request: `JSON Object`
 
@@ -188,7 +188,7 @@
 #### 8. Withdraw free/avaiable balance
 
 - Description: Sử dụng để gửi yêu cầu rút tài sản không bị khoá
-- Endpoint: `/balance/${user_id}/withdraw`
+- Endpoint: `/balances/${user_id}/withdraw`
 - Method: `POST`
 - Request: `JSON Object`
 
@@ -212,7 +212,7 @@
 #### 9. Get User Balance OnChain
 
 - Description: Sử dụng để lấy số dư onchain của user
-- Endpoint: `/balance/${address}`
+- Endpoint: `/balances/${address}`
 - Method: `POST`
 - Request: `JSON Object`
 
@@ -377,16 +377,15 @@
 - Method: `POST`
 - Request: `JSON Object`
 
-| Param      | Type     | Description                                |
-| ---------- | -------- | ------------------------------------------ |
-| `asset`    | `String` | Tài sản muốn thế chấp, VD `ETH`,`BNB`, ... |
-| `price` | `Number` | Giá cũ                                     |
-| `p1h` | `Number` | Phần trăm 1h |
-| `p24h` | `Number` | Phần trăm 24h |
-| `p7d` | `Number` | Phần trăm 7d |
-| `volume` | `Number` | Khối lượng giao dịch |
-| `timestamp` | `Number` | Thời gian |
-
+| Param       | Type     | Description                                |
+| ----------- | -------- | ------------------------------------------ |
+| `asset`     | `String` | Tài sản muốn thế chấp, VD `ETH`,`BNB`, ... |
+| `price`     | `Number` | Giá cũ                                     |
+| `p1h`       | `Number` | Phần trăm 1h                               |
+| `p24h`      | `Number` | Phần trăm 24h                              |
+| `p7d`       | `Number` | Phần trăm 7d                               |
+| `volume`    | `Number` | Khối lượng giao dịch                       |
+| `timestamp` | `Number` | Thời gian                                  |
 
 ### Chain list
 
