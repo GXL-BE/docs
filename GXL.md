@@ -57,7 +57,7 @@
 | `user_id` | `String`  | ID của user          |
 | `network` | `String`  | Mạng quản lý tài sản |
 
-#### 2. Get Smart Contract To Deposit
+#### 3. Get Smart Contract To Deposit
 
 - Description: Sử dụng để gọi hàm `deposit(address asset, uint amount)` nạp tài sản vào hệ thống
 - Endpoint: `/deposit/pool/${user_id}`
@@ -79,7 +79,7 @@
 | `network` | `String`  | Mạng quản lý tài sản        |
 | `asset`   | `String`  | Tài sản muốn thế chấp       |
 
-#### 3. Get User Balances
+#### 4. Get User Balances
 
 - Description: Sử dụng để lấy số dư tài sản của user
 - Endpoint: `/balances/${user_id}`
@@ -96,7 +96,7 @@
 | `balances`.[].`asset`    | `String`           | Tài sản                   |
 | `balances`.[].`network`  | `String`           | Mạng quản lý tài sản      |
 
-#### 4. Lock User Balance
+#### 5. Lock User Balance
 
 - Description: Sử dụng để lock số dư của user,
 - Endpoint: `/balance/${user_id}/lock`
@@ -124,7 +124,7 @@
 | `avaiable` | `Number`  | Số dư khả dụng                              |
 | `locked`   | `Number`  | Số dư bị khoá do thế chấp                   |
 
-#### 5. Unlock User Balance
+#### 6. Unlock User Balance
 
 - Description: Sử dụng để unlock khoản vay của user
 - Endpoint: `/balance/${user_id}/unlock`
@@ -156,7 +156,7 @@
 | `avaiable`      | `Number`  | Số dư khả dụng                                                             |
 | `locked`        | `Number`  | Số dư bị khoá do thế chấp                                                  |
 
-#### 6. Liquidate User Lock
+#### 7. Liquidate User Lock
 
 - Description: Sử dụng để thanh lý khoản vay của user
 - Endpoint: `/balance/${user_id}/liquidate`
@@ -185,7 +185,7 @@
 | `avaiable`     | `Number`  | Số dư khả dụng                                        |
 | `locked`       | `Number`  | Số dư bị khoá do thế chấp                             |
 
-#### 7. Withdraw free/avaiable balance
+#### 8. Withdraw free/avaiable balance
 
 - Description: Sử dụng để gửi yêu cầu rút tài sản không bị khoá
 - Endpoint: `/balance/${user_id}/withdraw`
@@ -209,7 +209,7 @@
 | -------- | --------- | -------------------- |
 | `status` | `Boolean` | Trạng thái giao dịch |
 
-#### 8. Get User Balance OnChain
+#### 9. Get User Balance OnChain
 
 - Description: Sử dụng để lấy số dư onchain của user
 - Endpoint: `/balance/${address}`
@@ -231,7 +231,7 @@
 | `assets`.[].`amount` | `Number`           | Số dư tài sản hiện có      |
 | `assets`.[].`asset`  | `String`           | Tên tài sản                |
 
-#### 9. Register check transaction
+#### 10. Register check transaction
 
 - Description: Sử dụng để gửi yêu cầu xác thực giao dịch khi user chuyển tài sản cho nhau
 - Endpoint: `/transaction/{$txid}`
