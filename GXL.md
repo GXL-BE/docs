@@ -372,7 +372,7 @@
 
 ### 7. onPriceUpdated
 
-- Description: Khi user depoit
+- Description: Khi giá asset thay đổi
 - Endpoint: Được đăng ký trước
 - Method: `POST`
 - Request: `JSON Object`
