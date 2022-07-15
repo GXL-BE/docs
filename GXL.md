@@ -452,7 +452,7 @@ export type ChainList =
     "chains": [
       {
         "name": "Binance Smart Chain - Testnet",
-        "id": "bsc",
+        "id": "bsc testnet",
         "isMainnet": false
       },
       {
@@ -469,7 +469,7 @@ export type ChainList =
     "chains": [
       {
         "name": "Binance Smart Chain - Testnet",
-        "id": "bsc",
+        "id": "bsc testnet",
         "isMainnet": false
       },
       {
