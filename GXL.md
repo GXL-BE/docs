@@ -271,7 +271,7 @@
 | Name           | Type      | Description          |
 | -------------- | --------- | -------------------- |
 | `status`       | `Boolean` | Trạng thái giao dịch |
-| `fee`          | `Number`  | Phí giao dịch        |
+| `gas_price`    | `Number`  | Phí gas tối thiểu    |
 | `estimate_gas` | `Number`  | Gas ước tính         |
 
 ### IPNs
