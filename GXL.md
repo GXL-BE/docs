@@ -252,6 +252,28 @@
 | -------- | --------- | -------------------- |
 | `status` | `Boolean` | Trạng thái giao dịch |
 
+#### 11. Get base withdraw fee
+
+- Description: Sử dụng để lấy fee
+- Endpoint: `/balances/${user_id}/estimate`
+- Method: `POST`
+- Request: `JSON Object`
+
+| Param     | Type     | Required? | Description                                |
+| --------- | -------- | --------- | ------------------------------------------ |
+| `asset`   | `String` | `[x]`     | Tài sản muốn thế chấp, VD `ETH`,`BNB`, ... |
+| `network` | `String` | `[x]`     | [Mạng quản lý tài sản](#chain-list)        |
+| `amount`  | `Number` | `[x]`     | Số lượng asset unlock                      |
+| `to`      | `String` | `[x]`     | Địa chỉ rút asset của user                 |
+
+- Response: `JSON Object`
+
+| Name           | Type      | Description          |
+| -------------- | --------- | -------------------- |
+| `status`       | `Boolean` | Trạng thái giao dịch |
+| `fee`          | `Number`  | Phí giao dịch        |
+| `estimate_gas` | `Number`  | Gas ước tính         |
+
 ### IPNs
 
 #### 1. Lock User Balance
@@ -430,50 +452,30 @@ export type ChainList =
     "chains": [
       {
         "name": "Binance Smart Chain - Testnet",
-        "id": "BSC_TESTNET",
+        "id": "bsc",
         "isMainnet": false
       },
       {
         "name": "Rinkeby Testnet",
-        "id": "RINKEBY",
+        "id": "rinkeby",
         "isMainnet": false
-      },
-      {
-        "name": "Binance Smart Chain",
-        "id": "BSC",
-        "isMainnet": true
-      },
-      {
-        "name": "Ethereum",
-        "id": "ETHEREUM",
-        "isMainnet": true
       }
     ]
   },
-  "ETH": {
-    "name": "Ethereum",
+  "ERC2_TEST": {
+    "name": "ERC2_TEST",
     "logo": "https://assets-cdn.trustwallet.com/blockchains/ethereum/info/logo.png",
-    "id": "ETH",
+    "id": "ERC2_TEST",
     "chains": [
       {
         "name": "Binance Smart Chain - Testnet",
-        "id": "BSC_TESTNET",
+        "id": "bsc",
         "isMainnet": false
       },
       {
         "name": "Rinkeby Testnet",
-        "id": "RINKEBY",
+        "id": "rinkeby",
         "isMainnet": false
-      },
-      {
-        "name": "Binance Smart Chain",
-        "id": "BSC",
-        "isMainnet": true
-      },
-      {
-        "name": "Ethereum",
-        "id": "ETHEREUM",
-        "isMainnet": true
       }
     ]
   }
