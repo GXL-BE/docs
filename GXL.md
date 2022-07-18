@@ -86,15 +86,15 @@
 - Method: `GET`
 - Response: `JSON Object`
 
-| Name                     | Type               | Description                         |
-| ------------------------ | ------------------ | ----------------------------------- |
-| `status`                 | `Boolean`          | Trạng thái giao dịch                |
-| `user_id`                | `String`           | ID của user                         |
-| `balances`               | `Array of Objects` | Danh sách các khoản dư              |
-| `balances`.[].`locked`   | `Number`           | Số dư bị khoá do thế chấp           |
-| `balances`.[].`avaiable` | `Number`           | Số dư khả dụng                      |
-| `balances`.[].`asset`    | `String`           | Tài sản                             |
-| `balances`.[].`network`  | `String`           | [Mạng quản lý tài sản](#chain-list) |
+| Name                      | Type               | Description                         |
+| ------------------------- | ------------------ | ----------------------------------- |
+| `status`                  | `Boolean`          | Trạng thái giao dịch                |
+| `user_id`                 | `String`           | ID của user                         |
+| `balances`                | `Array of Objects` | Danh sách các khoản dư              |
+| `balances`.[].`locked`    | `Number`           | Số dư bị khoá do thế chấp           |
+| `balances`.[].`available` | `Number`           | Số dư khả dụng                      |
+| `balances`.[].`asset`     | `String`           | Tài sản                             |
+| `balances`.[].`network`   | `String`           | [Mạng quản lý tài sản](#chain-list) |
 
 #### 5. Lock User Balance
 
@@ -114,15 +114,15 @@
 
 - Response: `JSON Object`
 
-| Name       | Type      | Description                                 |
-| ---------- | --------- | ------------------------------------------- |
-| `status`   | `Boolean` | Trạng thái giao dịch                        |
-| `network`  | `String`  | [Mạng quản lý tài sản](#chain-list)         |
-| `lock_id`  | `String`  | ID của lock, được sử dụng để release về sau |
-| `asset`    | `String`  | Tài sản muốn thế chấp                       |
-| `user_id`  | `String`  | ID của user                                 |
-| `avaiable` | `Number`  | Số dư khả dụng                              |
-| `locked`   | `Number`  | Số dư bị khoá do thế chấp                   |
+| Name        | Type      | Description                                 |
+| ----------- | --------- | ------------------------------------------- |
+| `status`    | `Boolean` | Trạng thái giao dịch                        |
+| `network`   | `String`  | [Mạng quản lý tài sản](#chain-list)         |
+| `lock_id`   | `String`  | ID của lock, được sử dụng để release về sau |
+| `asset`     | `String`  | Tài sản muốn thế chấp                       |
+| `user_id`   | `String`  | ID của user                                 |
+| `available` | `Number`  | Số dư khả dụng                              |
+| `locked`    | `Number`  | Số dư bị khoá do thế chấp                   |
 
 #### 6. Unlock User Balance
 
@@ -131,17 +131,17 @@
 - Method: `POST`
 - Request: `JSON Object`
 
-| Param              | Type     | Required? | Description                                                                             |
-| ------------------ | -------- | --------- | --------------------------------------------------------------------------------------- |
-| `asset`            | `String` | `[x]`     | Tài sản muốn thế chấp, VD `ETH`,`BNB`, ...                                              |
-| `network`          | `String` | `[x]`     | [Mạng quản lý tài sản](#chain-list)                                                     |
-| `lock_id`          | `String` | `[x]`     | ID của lệnh lock                                                                        |
-| `amount`           | `Number` | `[x]`     | Số lượng asset unlock                                                                   |
-| `fee`              | `Number` | `[x]`     | Fee thu được của user                                                                   |
-| `withdraw_address` | `String` |           | Địa chỉ rút asset của user, nếu địa chỉ này trống, `amount` sẽ được cộng vào `avaiable` |
-| `ref`              | `String` |           | Referer                                                                                 |
-| `reason`           | `String` |           | Detail nguyên nhân unlock                                                               |
-| `notification_url` | `String` |           | URL nhận thông tin sau khi unlock                                                       |
+| Param              | Type     | Required? | Description                                                                              |
+| ------------------ | -------- | --------- | ---------------------------------------------------------------------------------------- |
+| `asset`            | `String` | `[x]`     | Tài sản muốn thế chấp, VD `ETH`,`BNB`, ...                                               |
+| `network`          | `String` | `[x]`     | [Mạng quản lý tài sản](#chain-list)                                                      |
+| `lock_id`          | `String` | `[x]`     | ID của lệnh lock                                                                         |
+| `amount`           | `Number` | `[x]`     | Số lượng asset unlock                                                                    |
+| `fee`              | `Number` | `[x]`     | Fee thu được của user                                                                    |
+| `withdraw_address` | `String` |           | Địa chỉ rút asset của user, nếu địa chỉ này trống, `amount` sẽ được cộng vào `available` |
+| `ref`              | `String` |           | Referer                                                                                  |
+| `reason`           | `String` |           | Detail nguyên nhân unlock                                                                |
+| `notification_url` | `String` |           | URL nhận thông tin sau khi unlock                                                        |
 
 - Response: `JSON Object`
 
@@ -153,7 +153,7 @@
 | `withdraw_txid` | `String`  | TXID của giao dịch withdraw của user (nếu `withdraw_address` được sử dụng) |
 | `asset`         | `String`  | Tài sản muốn thế chấp                                                      |
 | `user_id`       | `String`  | ID của user                                                                |
-| `avaiable`      | `Number`  | Số dư khả dụng                                                             |
+| `available`     | `Number`  | Số dư khả dụng                                                             |
 | `locked`        | `Number`  | Số dư bị khoá do thế chấp                                                  |
 
 #### 7. Liquidate User Lock
@@ -182,10 +182,10 @@
 | `liquidate_id` | `String`  | ID của lệnh thanh lý, được sử dụng để tra soát về sau |
 | `asset`        | `String`  | Tài sản muốn thế chấp                                 |
 | `user_id`      | `String`  | ID của user                                           |
-| `avaiable`     | `Number`  | Số dư khả dụng                                        |
+| `available`    | `Number`  | Số dư khả dụng                                        |
 | `locked`       | `Number`  | Số dư bị khoá do thế chấp                             |
 
-#### 8. Withdraw free/avaiable balance
+#### 8. Withdraw free/available balance
 
 - Description: Sử dụng để gửi yêu cầu rút tài sản không bị khoá
 - Endpoint: `/balances/${user_id}/withdraw`
@@ -283,17 +283,17 @@
 - Method: `POST`
 - Request: `JSON Object`
 
-| Param      | Type      | Description                                |
-| ---------- | --------- | ------------------------------------------ |
-| `status`   | `Boolean` | Trạng thái của action                      |
-| `asset`    | `String`  | Tài sản muốn thế chấp, VD `ETH`,`BNB`, ... |
-| `network`  | `String`  | [Mạng quản lý tài sản](#chain-list)        |
-| `amount`   | `Number`  | Số lượng asset cần lock                    |
-| `lock_id`  | `String`  | ID của action lock                         |
-| `ref`      | `String`  | Referer                                    |
-| `user_id`  | `String`  | ID của user                                |
-| `avaiable` | `Number`  | Số dư khả dụng                             |
-| `locked`   | `Number`  | Tổng tài sản đã khoá do thế chấp           |
+| Param       | Type      | Description                                |
+| ----------- | --------- | ------------------------------------------ |
+| `status`    | `Boolean` | Trạng thái của action                      |
+| `asset`     | `String`  | Tài sản muốn thế chấp, VD `ETH`,`BNB`, ... |
+| `network`   | `String`  | [Mạng quản lý tài sản](#chain-list)        |
+| `amount`    | `Number`  | Số lượng asset cần lock                    |
+| `lock_id`   | `String`  | ID của action lock                         |
+| `ref`       | `String`  | Referer                                    |
+| `user_id`   | `String`  | ID của user                                |
+| `available` | `Number`  | Số dư khả dụng                             |
+| `locked`    | `Number`  | Tổng tài sản đã khoá do thế chấp           |
 
 #### 2. Unlock User Balance
 
@@ -312,7 +312,7 @@
 | `unlock_id` | `String`  | ID của action unlock                                    |
 | `ref`       | `String`  | Referer                                                 |
 | `user_id`   | `String`  | ID của user                                             |
-| `avaiable`  | `Number`  | Số dư khả dụng                                          |
+| `available` | `Number`  | Số dư khả dụng                                          |
 | `locked`    | `Number`  | Tổng tài sản đã khoá do thế chấp                        |
 | `txid`      | `String`  | TXID của giao dịch rút tài sản trên blockchain (nếu có) |
 
@@ -333,29 +333,29 @@
 | `liquidate_id` | `String`  | ID của action thanh lý                     |
 | `ref`          | `String`  | Referer                                    |
 | `user_id`      | `String`  | ID của user                                |
-| `avaiable`     | `Number`  | Số dư khả dụng                             |
+| `available`    | `Number`  | Số dư khả dụng                             |
 | `locked`       | `Number`  | Tổng tài sản đã khoá do thế chấp           |
 
-#### 4. Withdraw free/avaiable balance
+#### 4. Withdraw free/available balance
 
 - Description: Sử dụng để gửi trạng thái rút tài sản khả dụng của user
 - Endpoint: `notification_url` trong request
 - Method: `POST`
 - Request: `JSON Object`
 
-| Param      | Type      | Description                                |
-| ---------- | --------- | ------------------------------------------ |
-| `status`   | `Boolean` | Trạng thái của action                      |
-| `asset`    | `String`  | Tài sản muốn thế chấp, VD `ETH`,`BNB`, ... |
-| `network`  | `String`  | [Mạng quản lý tài sản](#chain-list)        |
-| `amount`   | `Number`  | Số lượng asset rút ra ngoài                |
-| `fee`      | `Number`  | Fee thu được của user                      |
-| `to`       | `String`  | Địa chỉ rút tài sản                        |
-| `txid`     | `String`  | TXID của giao dịch chuyển tài sản          |
-| `ref`      | `String`  | Referer                                    |
-| `user_id`  | `String`  | ID của user                                |
-| `avaiable` | `Number`  | Số dư khả dụng                             |
-| `locked`   | `Number`  | Tổng tài sản đã khoá do thế chấp           |
+| Param       | Type      | Description                                |
+| ----------- | --------- | ------------------------------------------ |
+| `status`    | `Boolean` | Trạng thái của action                      |
+| `asset`     | `String`  | Tài sản muốn thế chấp, VD `ETH`,`BNB`, ... |
+| `network`   | `String`  | [Mạng quản lý tài sản](#chain-list)        |
+| `amount`    | `Number`  | Số lượng asset rút ra ngoài                |
+| `fee`       | `Number`  | Fee thu được của user                      |
+| `to`        | `String`  | Địa chỉ rút tài sản                        |
+| `txid`      | `String`  | TXID của giao dịch chuyển tài sản          |
+| `ref`       | `String`  | Referer                                    |
+| `user_id`   | `String`  | ID của user                                |
+| `available` | `Number`  | Số dư khả dụng                             |
+| `locked`    | `Number`  | Tổng tài sản đã khoá do thế chấp           |
 
 #### 5. Register check transaction
 
@@ -381,16 +381,16 @@
 - Method: `POST`
 - Request: `JSON Object`
 
-| Param      | Type     | Description                                |
-| ---------- | -------- | ------------------------------------------ |
-| `asset`    | `String` | Tài sản muốn thế chấp, VD `ETH`,`BNB`, ... |
-| `network`  | `String` | [Mạng quản lý tài sản](#chain-list)        |
-| `amount`   | `Number` | Số lượng asset deposit                     |
-| `to`       | `String` | Địa chỉ user                               |
-| `txid`     | `String` | TXID của giao dịch nhận deposit            |
-| `user_id`  | `String` | ID của user                                |
-| `avaiable` | `Number` | Số dư khả dụng                             |
-| `locked`   | `Number` | Tổng tài sản đã khoá do thế chấp           |
+| Param       | Type     | Description                                |
+| ----------- | -------- | ------------------------------------------ |
+| `asset`     | `String` | Tài sản muốn thế chấp, VD `ETH`,`BNB`, ... |
+| `network`   | `String` | [Mạng quản lý tài sản](#chain-list)        |
+| `amount`    | `Number` | Số lượng asset deposit                     |
+| `to`        | `String` | Địa chỉ user                               |
+| `txid`      | `String` | TXID của giao dịch nhận deposit            |
+| `user_id`   | `String` | ID của user                                |
+| `available` | `Number` | Số dư khả dụng                             |
+| `locked`    | `Number` | Tổng tài sản đã khoá do thế chấp           |
 
 ### 7. onPriceUpdated
 
