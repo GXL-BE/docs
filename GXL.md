@@ -168,7 +168,7 @@
 | `asset`            | `String` | `[x]`     | Tài sản muốn thế chấp, VD `ETH`,`BNB`, ... |
 | `network`          | `String` | `[x]`     | [Mạng quản lý tài sản](#chain-list)        |
 | `amount`           | `Number` | `[x]`     | Số lượng asset cần thanh lý                |
-| `lock_id`          | `String` | `[x]`     | ID của lệnh lock                           |
+| `lock_id`          | `String` | `[]`      | ID của lệnh lock                           |
 | `ref`              | `String` |           | Referer                                    |
 | `reason`           | `String` |           | Detail nguyên nhân lock                    |
 | `notification_url` | `String` |           | URL nhận thông tin sau khi thanh lý        |
