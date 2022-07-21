@@ -388,6 +388,7 @@
 | `amount`    | `Number` | Số lượng asset deposit                     |
 | `to`        | `String` | Địa chỉ user                               |
 | `txid`      | `String` | TXID của giao dịch nhận deposit            |
+| `tx_hash`   | `String` | TX hash của giao dịch nhận deposit         |
 | `user_id`   | `String` | ID của user                                |
 | `available` | `Number` | Số dư khả dụng                             |
 | `locked`    | `Number` | Tổng tài sản đã khoá do thế chấp           |
