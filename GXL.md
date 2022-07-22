@@ -274,6 +274,24 @@
 | `gas_price`    | `Number`  | Phí gas tối thiểu    |
 | `estimate_gas` | `Number`  | Gas ước tính         |
 
+#### 12. Sync tx hash
+
+- Description: Sử dụng để lấy fee
+- Endpoint: `/sync/blocks`
+- Method: `POST`
+- Request: `JSON Object`
+
+| Param     | Type     | Required? | Description                         |
+| --------- | -------- | --------- | ----------------------------------- |
+| `tx_hash` | `String` | `[x]`     | On chain transaction hash           |
+| `network` | `String` | `[x]`     | [Mạng quản lý tài sản](#chain-list) |
+
+- Response: `JSON Object`
+
+| Name     | Type      | Description          |
+| -------- | --------- | -------------------- |
+| `status` | `Boolean` | Trạng thái giao dịch |
+
 ### IPNs
 
 #### 1. Lock User Balance
