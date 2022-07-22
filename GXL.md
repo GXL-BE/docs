@@ -276,7 +276,7 @@
 
 #### 12. Sync tx hash
 
-- Description: Sử dụng để lấy fee
+- Description: Sử dụng để sync tx on chain
 - Endpoint: `/sync/tx`
 - Method: `POST`
 - Request: `JSON Object`
