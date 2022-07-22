@@ -463,10 +463,10 @@ export type ChainList =
       }
     ]
   },
-  "ERC2_TEST": {
-    "name": "ERC2_TEST",
+  "ERC20_TEST": {
+    "name": "ERC20_TEST",
     "logo": "https://assets-cdn.trustwallet.com/blockchains/ethereum/info/logo.png",
-    "id": "ERC2_TEST",
+    "id": "ERC20_TEST",
     "chains": [
       {
         "name": "Binance Smart Chain - Testnet",
