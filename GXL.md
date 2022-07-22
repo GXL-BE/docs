@@ -277,7 +277,7 @@
 #### 12. Sync tx hash
 
 - Description: Sử dụng để lấy fee
-- Endpoint: `/sync/blocks`
+- Endpoint: `/sync/tx`
 - Method: `POST`
 - Request: `JSON Object`
 
