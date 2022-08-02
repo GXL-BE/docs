@@ -344,15 +344,20 @@
 | Param          | Type      | Description                                |
 | -------------- | --------- | ------------------------------------------ |
 | `status`       | `Boolean` | Trạng thái của action                      |
-| `asset`        | `String`  | Tài sản muốn thế chấp, VD `ETH`,`BNB`, ... |
 | `network`      | `String`  | [Mạng quản lý tài sản](#chain-list)        |
-| `amount`       | `Number`  | Số lượng asset thanh lý                    |
 | `lock_id`      | `String`  | ID của action lock                         |
 | `liquidate_id` | `String`  | ID của action thanh lý                     |
 | `ref`          | `String`  | Referer                                    |
 | `user_id`      | `String`  | ID của user                                |
 | `available`    | `Number`  | Số dư khả dụng                             |
 | `locked`       | `Number`  | Tổng tài sản đã khoá do thế chấp           |
+| `asset`        | `String`  | Tài sản thanh lý                           |
+| `amount`       | `Number`  | Số lượng tài sản thanh lý                  |
+| `amount_out`   | `Number`  | Số lượng tài sản sau thanh lý              |
+| `asset_out`    | `String`  | Loại tài sản thanh lý                      |
+| `fee`          | `Object`  | Phí thanh lý                               |
+| `fee.asset`    | `String`  | Loại tài sản của phí thanh lý              |
+| `fee.amount`   | `Number`  | Số lượng phí thanh lý                      |
 
 #### 4. Withdraw free/available balance
 
