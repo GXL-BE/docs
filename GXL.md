@@ -175,15 +175,15 @@
 
 - Response: `JSON Object`
 
-| Name           | Type      | Description                                           |
-| -------------- | --------- | ----------------------------------------------------- |
-| `status`       | `Boolean` | Trạng thái giao dịch                                  |
-| `network`      | `String`  | [Mạng quản lý tài sản](#chain-list)                   |
-| `liquidate_id` | `String`  | ID của lệnh thanh lý, được sử dụng để tra soát về sau |
-| `asset`        | `String`  | Tài sản muốn thế chấp                                 |
-| `user_id`      | `String`  | ID của user                                           |
-| `available`    | `Number`  | Số dư khả dụng                                        |
-| `locked`       | `Number`  | Số dư bị khoá do thế chấp                             |
+| Name           | Type     | Description                                           |
+| -------------- | -------- | ----------------------------------------------------- |
+| `status`       | `String` | Trạng thái giao dịch                                  |
+| `network`      | `String` | [Mạng quản lý tài sản](#chain-list)                   |
+| `liquidate_id` | `String` | ID của lệnh thanh lý, được sử dụng để tra soát về sau |
+| `asset`        | `String` | Tài sản muốn thế chấp                                 |
+| `user_id`      | `String` | ID của user                                           |
+| `available`    | `Number` | Số dư khả dụng                                        |
+| `locked`       | `Number` | Số dư bị khoá do thế chấp                             |
 
 #### 8. Withdraw free/available balance
 
