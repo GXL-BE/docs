@@ -341,23 +341,23 @@
 - Method: `POST`
 - Request: `JSON Object`
 
-| Param          | Type      | Description                                |
-| -------------- | --------- | ------------------------------------------ |
-| `status`       | `Boolean` | Trạng thái của action                      |
-| `network`      | `String`  | [Mạng quản lý tài sản](#chain-list)        |
-| `lock_id`      | `String`  | ID của action lock                         |
-| `liquidate_id` | `String`  | ID của action thanh lý                     |
-| `ref`          | `String`  | Referer                                    |
-| `user_id`      | `String`  | ID của user                                |
-| `available`    | `Number`  | Số dư khả dụng                             |
-| `locked`       | `Number`  | Tổng tài sản đã khoá do thế chấp           |
-| `asset`        | `String`  | Tài sản thanh lý                           |
-| `amount`       | `Number`  | Số lượng tài sản thanh lý                  |
-| `amount_out`   | `Number`  | Số lượng tài sản sau thanh lý              |
-| `asset_out`    | `String`  | Loại tài sản thanh lý                      |
-| `fee`          | `Object`  | Phí thanh lý                               |
-| `fee.asset`    | `String`  | Loại tài sản của phí thanh lý              |
-| `fee.amount`   | `Number`  | Số lượng phí thanh lý                      |
+| Param          | Type      | Description                         |
+| -------------- | --------- | ----------------------------------- |
+| `status`       | `Boolean` | Trạng thái của action               |
+| `network`      | `String`  | [Mạng quản lý tài sản](#chain-list) |
+| `lock_id`      | `String`  | ID của action lock                  |
+| `liquidate_id` | `String`  | ID của action thanh lý              |
+| `ref`          | `String`  | Referer                             |
+| `user_id`      | `String`  | ID của user                         |
+| `available`    | `Number`  | Số dư khả dụng                      |
+| `locked`       | `Number`  | Tổng tài sản đã khoá do thế chấp    |
+| `asset`        | `String`  | Tài sản thanh lý                    |
+| `amount`       | `Number`  | Số lượng tài sản thanh lý           |
+| `amount_out`   | `Number`  | Số lượng tài sản sau thanh lý       |
+| `asset_out`    | `String`  | Loại tài sản thanh lý               |
+| `fee`          | `Object`  | Phí thanh lý                        |
+| `fee.asset`    | `String`  | Loại tài sản của phí thanh lý       |
+| `fee.amount`   | `Number`  | Số lượng phí thanh lý               |
 
 #### 4. Withdraw free/available balance
 
@@ -473,16 +473,22 @@ export type ChainList =
     "name": "Binance Coin",
     "logo": "https://assets-cdn.trustwallet.com/blockchains/binance/info/logo.png",
     "id": "BNB",
+    "address": "0x0000000000000000000000000000000000000000",
+    "isNativeCoin": true,
     "chains": [
       {
         "name": "Binance Smart Chain - Testnet",
         "id": "bsc testnet",
-        "isMainnet": false
+        "isMainnet": false,
+        "address": "0x0000000000000000000000000000000000000000",
+        "isNativeCoin": true
       },
       {
         "name": "Rinkeby Testnet",
         "id": "rinkeby",
-        "isMainnet": false
+        "isMainnet": false,
+        "address": "0x0000000000000000000000000000000000000000",
+        "isNativeCoin": true
       }
     ]
   },
@@ -490,16 +496,21 @@ export type ChainList =
     "name": "ERC20_TEST",
     "logo": "https://assets-cdn.trustwallet.com/blockchains/ethereum/info/logo.png",
     "id": "ERC20_TEST",
+
     "chains": [
       {
         "name": "Binance Smart Chain - Testnet",
         "id": "bsc testnet",
-        "isMainnet": false
+        "isMainnet": false,
+        "address": "0xAad3A2d47A50CEaCfB02F6Eff8BB5396789C2097",
+        "isNativeCoin": false
       },
       {
         "name": "Rinkeby Testnet",
         "id": "rinkeby",
-        "isMainnet": false
+        "isMainnet": false,
+        "address": "0x13FEaB8C9E53A00b079c6120757F1BC9c3016A7D",
+        "isNativeCoin": false
       }
     ]
   }
