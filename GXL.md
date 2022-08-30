@@ -473,8 +473,6 @@ export type ChainList =
     "name": "Binance Coin",
     "logo": "https://assets-cdn.trustwallet.com/blockchains/binance/info/logo.png",
     "id": "BNB",
-    "address": "0x0000000000000000000000000000000000000000",
-    "isNativeCoin": true,
     "chains": [
       {
         "name": "Binance Smart Chain - Testnet",
@@ -496,7 +494,6 @@ export type ChainList =
     "name": "ERC20_TEST",
     "logo": "https://assets-cdn.trustwallet.com/blockchains/ethereum/info/logo.png",
     "id": "ERC20_TEST",
-
     "chains": [
       {
         "name": "Binance Smart Chain - Testnet",
