@@ -513,7 +513,7 @@ export type ChainList =
 #### Get List Assets
 - Description: Danh sách các token hệ thống hỗ trợ
 - Endpoint: `/assets`
-- Method: `POST`
+- Method: `GET`
 - Response: `JSON Object`
 
 | Name                         | Type           | Description                     |
