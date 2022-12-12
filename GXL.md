@@ -358,6 +358,8 @@
 | `fee`          | `Object`  | Phí thanh lý                        |
 | `fee.asset`    | `String`  | Loại tài sản của phí thanh lý       |
 | `fee.amount`   | `Number`  | Số lượng phí thanh lý               |
+| `chain_txid`   | `String`  | Transaction id trên chain           |
+
 
 #### 4. Withdraw free/available balance
 
@@ -366,19 +368,21 @@
 - Method: `POST`
 - Request: `JSON Object`
 
-| Param       | Type      | Description                                |
-| ----------- | --------- | ------------------------------------------ |
-| `status`    | `Boolean` | Trạng thái của action                      |
-| `asset`     | `String`  | Tài sản muốn thế chấp, VD `ETH`,`BNB`, ... |
-| `network`   | `String`  | [Mạng quản lý tài sản](#chain-list)        |
-| `amount`    | `Number`  | Số lượng asset rút ra ngoài                |
-| `fee`       | `Number`  | Fee thu được của user                      |
-| `to`        | `String`  | Địa chỉ rút tài sản                        |
-| `txid`      | `String`  | TXID của giao dịch chuyển tài sản          |
-| `ref`       | `String`  | Referer                                    |
-| `user_id`   | `String`  | ID của user                                |
-| `available` | `Number`  | Số dư khả dụng                             |
-| `locked`    | `Number`  | Tổng tài sản đã khoá do thế chấp           |
+| Param        | Type      | Description                                |
+| ------------ | --------- | ------------------------------------------ |
+| `status`     | `Boolean` | Trạng thái của action                      |
+| `asset`      | `String`  | Tài sản muốn thế chấp, VD `ETH`,`BNB`, ... |
+| `network`    | `String`  | [Mạng quản lý tài sản](#chain-list)        |
+| `amount`     | `Number`  | Số lượng asset rút ra ngoài                |
+| `fee`        | `Number`  | Fee thu được của user                      |
+| `to`         | `String`  | Địa chỉ rút tài sản                        |
+| `txid`       | `String`  | TXID của giao dịch chuyển tài sản          |
+| `ref`        | `String`  | Referer                                    |
+| `user_id`    | `String`  | ID của user                                |
+| `available`  | `Number`  | Số dư khả dụng                             |
+| `locked`     | `Number`  | Tổng tài sản đã khoá do thế chấp           |
+| `chain_txid` | `String`  | Transaction id trên chain                  |
+
 
 #### 5. Register check transaction
 
@@ -433,6 +437,47 @@
 | `volume`    | `Number` | Khối lượng giao dịch                       |
 | `timestamp` | `Number` | Thời gian                                  |
 
+
+### Get Transaction Info
+
+- Description: Lấy trạng thái thông tin giao dịch theo transaction id / liquidiate id
+- Endpoint: `/transaction/${tx_id}`
+- Method: `GET`
+- Response: `JSON Object`
+
+| Name                 | Type      | Description               |
+| -------------------- | --------- | ------------------------- |
+| `status`             | `Boolean` | Trạng thái giao dịch      |
+| `from`               | `Address` | Địa chỉ tạo giao dịch     |
+| `to`                 | `Address` | Địa chỉ nhận              |
+| `amount`             | `String`  | Số tiền giao dịch         |
+| `network`            | `String`  | Chain giao dịch           |
+| `asset`              | `String`  | Tài sản giao dịch         |
+| `transaction_status` | `String`  | Trạng thái giao dịch      |
+| `txid`               | `String`  | Transaction id            |
+| `chain_txid`         | `String`  | Transaction id trên chain |
+| `type`               | `String`  | Loại giao dịch            |
+| `ref`                | `String`  | Refer của giao dịch       |
+| `reason`             | `String`  | Lý do của giao dịch       |
+
+```json
+{
+    "status": true,
+    "from": "0x0638B9D4597c5A9a248C619a5110D094a1236909",
+    "to": null,
+    "amount": "0.2",
+    "network": "bsc testnet",
+    "asset": "MUSD",
+    "transaction_status": "SUCCESS",
+    "txid": "2a746c53-ba87-4719-83eb-136610483840",
+    "chain_txid": "0xd8bc801e9f09acf5667c067cb9933bee7dcfd4d382245dce18b45a5e73b0ccf8",
+    "type": "LIQUIDATE",
+    "ref": null,
+    "reason": null
+}
+```
+
+
 ### Chain list
 
 ```javascript
@@ -465,51 +510,85 @@ export type ChainList =
   | "0x19";
 ```
 
-### Token for Test
+#### Get List Assets
+- Description: Danh sách các token hệ thống hỗ trợ
+- Endpoint: `/assets`
+- Method: `POST`
+- Response: `JSON Object`
+
+| Name                         | Type           | Description                     |
+| ---------------------------- | -------------- | ------------------------------- |
+| `status`                     | `Boolean`      | Trạng thái giao dịch            |
+| `asset`                      | `Array Object` |                                 |
+| `asset[].name`               | `String`       | Tên Token                       |
+| `asset[].symbol`             | `String`       | Symbol của Token                |
+| `asset[].decimals`           | `Number`       | Số decimals của token           |
+| `asset[].identity`           | `String`       | Ký hiệu định danh Token         |
+| `asset[].chains`             | `Array Object` |                                 |
+| `asset[].chains[].name`      | `String`       | Tên của chain                   |
+| `asset[].chains[].address`   | `String`       | Địa chỉ token trên chain        |
+| `asset[].chains[].chainId`   | `String`       | Id của chain                    |
+| `asset[].chains[].isMainnet` | `Boolean`      | true = mainnet, false = testnet |
+| `asset[].chains[].chainType` | `String`       | EIP155,...              |
 
 ```json
 {
-  "BNB": {
-    "name": "Binance Coin",
-    "logo": "https://assets-cdn.trustwallet.com/blockchains/binance/info/logo.png",
-    "id": "BNB",
-    "chains": [
-      {
-        "name": "Binance Smart Chain - Testnet",
-        "id": "bsc testnet",
-        "isMainnet": false,
-        "address": "0x0000000000000000000000000000000000000000",
-        "isNativeCoin": true
-      },
-      {
-        "name": "Rinkeby Testnet",
-        "id": "rinkeby",
-        "isMainnet": false,
-        "address": "0x0000000000000000000000000000000000000000",
-        "isNativeCoin": true
-      }
+    "status": true,
+    "assets": [
+        {
+            "name": "BNB",
+            "symbol": "BNB",
+            "decimals": 18,
+            "identity": "BNBTESTNET",
+            "chains": [
+                {
+                    "name": "bsc testnet",
+                    "address": "0x0000000000000000000000000000000000000000",
+                    "chainId": "97",
+                    "isMainnet": false,
+                    "chainType": "EIP155",
+                    "isNative": true
+                }
+            ]
+        },
+        {
+            "name": "MUSD Testnet",
+            "symbol": "MUSD",
+            "decimals": 18,
+            "identity": "MUSDTESTNET",
+            "chains": [
+                {
+                    "name": "bsc testnet",
+                    "address": "0xFFCd573783A0335CE6591E78592b6F93B1A4e329",
+                    "chainId": "97",
+                    "isMainnet": false,
+                    "chainType": "EIP155"
+                }
+            ]
+        }
     ]
-  },
-  "ERC20_TEST": {
-    "name": "ERC20_TEST",
-    "logo": "https://assets-cdn.trustwallet.com/blockchains/ethereum/info/logo.png",
-    "id": "ERC20_TEST",
-    "chains": [
-      {
-        "name": "Binance Smart Chain - Testnet",
-        "id": "bsc testnet",
-        "isMainnet": false,
-        "address": "0xAad3A2d47A50CEaCfB02F6Eff8BB5396789C2097",
-        "isNativeCoin": false
-      },
-      {
-        "name": "Rinkeby Testnet",
-        "id": "rinkeby",
-        "isMainnet": false,
-        "address": "0x13FEaB8C9E53A00b079c6120757F1BC9c3016A7D",
-        "isNativeCoin": false
-      }
-    ]
-  }
 }
 ```
+
+## DEX
+### DEX Function
+- Deposit từ ví DEX (Metamask,...) bằng cách gọi hàm `depositERC20` đến contract.
+- Bank Contract: `0x0132ab5bdc4585aa5540B23D419A40edfdb5C43E`
+- Function: 
+```
+  function depositERC20(
+        address erc20,
+        uint256 amount,
+        address depositer,
+        address app,
+        string calldata reason
+    ) public payable returns (uint256)
+```
+- Native Coin: address erc20 = `0x0000000000000000000000000000000000000000`
+
+
+## Others
+
+### Mint ERC20 Test
+
+MUSDTESTNET: [MUSD BSC TESTNET MINT](https://testnet.bscscan.com/address/0xFFCd573783A0335CE6591E78592b6F93B1A4e329#writeContract#F4)
