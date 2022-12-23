@@ -573,7 +573,7 @@ export type ChainList =
 
 ### Get On Transaction Info
 
-- Description: Lấy trạng thái thông tin giao dịch theo transaction id / liquidiate id
+- Description: Lấy trạng thái thông tin transaction on chain
 - Endpoint: `/transaction/onchain`
 - Method: `POST`
 - Request: `JSON Object`
