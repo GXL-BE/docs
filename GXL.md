@@ -570,6 +570,82 @@ export type ChainList =
 }
 ```
 
+
+### Get On Transaction Info
+
+- Description: Lấy trạng thái thông tin giao dịch theo transaction id / liquidiate id
+- Endpoint: `/transaction/onchain`
+- Method: `POST`
+- Request: `JSON Object`
+
+| Param     | Type     | Required? | Description                         |
+| --------- | -------- | --------- | ----------------------------------- |
+| `network` | `String` | `[x]`     | [Mạng quản lý tài sản](#chain-list) |
+| `tx`      | `String` | `[x]`     | Transaction hash onchain            |
+
+- Response: `JSON Object`
+
+| Name                       | Type           | Description                                      |
+| -------------------------- | -------------- | ------------------------------------------------ |
+| `status`                   | `Boolean`      | Trạng thái                                       |
+| `transfers`                | `Array Object` | Danh sách giao dịch                              |
+| `transfers[].token`        | `String`       | Address token                                    |
+| `transfers[].from`         | `String`       | Địa chỉ gửi                                      |
+| `transfers[].to`           | `String`       | Địa chỉ nhận                                     |
+| `transfers[].value`        | `String`       | Amount                                           |
+| `transfers[].parsed`       | `Object`       | Parse value nếu thuộc hệ thống token GXL support |
+| `transfers[].parsed.name`  | `String`       | Token name                                       |
+| `transfers[].parsed.value` | `String`       | Value parsed                                     |
+
+
+```json
+{
+    "status": true,
+    "transfers": [
+        {
+            "token": "0xFFCd573783A0335CE6591E78592b6F93B1A4e329",
+            "from": "0x0132ab5bdc4585aa5540B23D419A40edfdb5C43E",
+            "to": "0xf6D924cF2332402084EeaBd13Cf374e7e90C984C",
+            "value": "1000000000000000000",
+            "parsed": {
+                "value": "1.0",
+                "name": "MUSD"
+            }
+        },
+        {
+            "token": "0xFFCd573783A0335CE6591E78592b6F93B1A4e329",
+            "from": "0xf6D924cF2332402084EeaBd13Cf374e7e90C984C",
+            "to": "0x401aE775bb1405C88F9c55E38F8A26f082Cd0a96",
+            "value": "1000000000000000000",
+            "parsed": {
+                "value": "1.0",
+                "name": "MUSD"
+            }
+        },
+        {
+            "token": "0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd",
+            "from": "0x401aE775bb1405C88F9c55E38F8A26f082Cd0a96",
+            "to": "0x65B25C984ac17A744107E485EA84c366c58501Dd",
+            "value": "1996015950175",
+            "parsed": {
+                "value": "0.000001996015950175",
+                "name": "WBNB"
+            }
+        },
+        {
+            "token": "0xb16ba303c1Fa64Dc8a91dCaF87D0299F85792B6A",
+            "from": "0x65B25C984ac17A744107E485EA84c366c58501Dd",
+            "to": "0x3758345D1b148e1E943D452705FfeF0b550E2f86",
+            "value": "199195445578734426",
+            "parsed": {
+                "value": "0.199195445578734426",
+                "name": "BUSD"
+            }
+        }
+    ]
+}
+```
+
 ## DEX
 ### DEX Function
 - Deposit từ ví DEX (Metamask,...) bằng cách gọi hàm `depositERC20` đến contract.
